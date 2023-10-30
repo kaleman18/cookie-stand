@@ -1,0 +1,31 @@
+*{
+  border-color: black 5px;
+}
+h1 {
+    background-color: black;
+    text-align: center;
+    color: salmon;
+    font-family: 'Righteous';
+    font-size: xxx-large;
+    padding:30px;
+}
+
+nav{
+  background-color: salmon;
+  font-size: large;
+  padding:15px;
+}
+
+h2 {
+  color: black;
+  font-family: 'Righteous';
+  font-size: xx-large;
+  padding-left: 50px;
+}
+
+footer{
+  background-color: lightgray;
+  text-align: center;
+  padding: 50px;
+  font-size: larger;
+}
