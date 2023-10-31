@@ -1,5 +1,7 @@
-*{
-  border-color: black 5px;
+
+nav a{
+  margin-right: 20px;
+
 }
 h1 {
     background-color: black;
@@ -23,9 +25,23 @@ h2 {
   padding-left: 50px;
 }
 
+ul {
+  color: grey;
+  margin-left: 70px;
+  margin-bottom: 20px;
+  font-size: larger;
+}
+
 footer{
   background-color: lightgray;
   text-align: center;
   padding: 50px;
   font-size: larger;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
