@@ -45,3 +45,21 @@ img{
   margin-right: auto;
   width: 50%;
 }
+
+div{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+table *{
+  border: 1px solid black;
+  padding: 1em;
+}
+
+table th{
+  background-color: salmon;
+}
+
+
