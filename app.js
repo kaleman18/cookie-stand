@@ -9,6 +9,8 @@ function getRandomCookies(min, max) {
 let totals = new Array(14);
 totals.fill(0);
 
+let finalTotal = 0;
+
 function Store(minCust, maxCust, avgCookie, storeName, storeHours, storeNumber, storeLocation) {
   this.storeName = storeName;
   this.minCust = minCust;
@@ -32,6 +34,7 @@ Store.prototype.cookiePerHour = function () {
     this.avgCookiePer.push(avgCookiesPerHour);
     this.totalCookiesSoldPerStore += avgCookiesPerHour;
     totals[i] += avgCookiesPerHour;
+    finalTotal += avgCookiesPerHour;
   }
 };
 
@@ -77,7 +80,22 @@ Store.prototype.renderData = function () {
   }
 };
 
-let renderTotals = function(){
+let renderTotalsAndHeader = function(){
+  const headerElement = document.getElementById('time');
+  let headerRow = document.createElement('tr');
+  headerRow.textContent = 'Locations';
+  headerElement.append(headerRow);
+
+  for (let i = 0; i < hours.length; i++) {
+    const hourCell = document.createElement('td');
+    hourCell.textContent = hours[i];
+    headerRow.append(hourCell);
+  }
+
+  const locationTotal = document.createElement('td');
+  locationTotal.textContent = 'Location Totals';
+  headerRow.append(locationTotal);
+
   const timeElement = document.getElementById('totalPerHour');
   let storeRow = document.createElement('tr');
   storeRow.textContent = 'Totals Per Hour';
@@ -88,18 +106,16 @@ let renderTotals = function(){
     storeCell.textContent = totals[i];
     storeRow.append(storeCell);
   }
+  let allTotals = document.createElement('td');
+  allTotals.textContent = finalTotal;
+  storeRow.append(finalTotal);
 };
 
-// Store.prototype.totalCookiesPerHour = function () {
-//   let totalCookiesPerHour = [];
-//   for (let i = 0; i < hours.length; i++) {
-//     const totalCookiesPerHour2 = Store.Seattle.totalCookiePer[i] + Store.Tokyo.totalCookiePer[i] + Store.Dubai.totalCookiePer[i] + Store.Paris.totalCookiePer[i] + Store.Lima.totalCookiePer[i];
-//     totalCookiesPerHour.push(totalCookiesPerHour2);
-//   }
-//   this.totalCookiesPerHour.push(totalCookiesPerHour);
-// };
-
-
+// this is the final total loop
+for (let i = 0; i < totals.length; i++) {
+  const addTotals = 0 + totals[i];
+  finalTotal += addTotals;
+}
 
 
 let Seattle = new Store(23, 65, 6.3, 'Seattle', 'Hours Open : 6am-7pm', 'Contact Info : 123-456-7890', 'Location :2901 3rd Ave #300, Seattle, WA 98121');
@@ -116,7 +132,7 @@ for (let i = 0; i < stores.length; i++) {
 
 }
 
-renderTotals();
+renderTotalsAndHeader();
 
 
 
