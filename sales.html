@@ -15,9 +15,27 @@
             <a href="sales.html">Sales Data</a>
         </nav>
     </Header>
-  <main>
-    <div>
-      <table>
+  <main class="container">
+    <form id="submit">
+      <fieldset>
+
+        <label for="location">Store Location:</label>
+        <input name="storeName" id="location" >
+
+        <label for="minCustomer">Minimum Customers</label>
+        <input name="minCust" id="minCustomer">
+
+        <label for="MaxCustomer">Maximum Customers</label>
+        <input name="maxCust" id="MaxCustomer">
+
+        <label for="avgCookies">Average Cookies Per Sale</label>
+        <input name="avgCookies" id="avgCookies">
+
+        <button type="submit">Click here to add!</button>
+
+      </fieldset>
+    </form>
+      <table class="table">
         <thead id="time">
         </thead>
         <tbody id="info">
@@ -28,7 +46,6 @@
         </tfoot>
 
       </table>
-    </div>
 
   </main>
   <Footer>
