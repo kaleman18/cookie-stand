@@ -1,16 +1,10 @@
 
 const hours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
 
-// function getRandomCookies(min, max) {
-//   const randomPeople = Math.floor(Math.random() * (max - min + 1) + min);
-//   return randomPeople;
-// }
 let inputs = document.querySelectorAll('input');
-
 
 let newStoreObject = {};
 
-console.log(inputs);
 for (let i=0; i < inputs.length; i++){
   inputs[i].addEventListener('change', function (event){
     // event.preventDefault();
@@ -19,8 +13,6 @@ for (let i=0; i < inputs.length; i++){
   });
 
 }
-
-console.log(newStoreObject);
 
 let totals = new Array(14);
 totals.fill(0);
@@ -38,7 +30,6 @@ function Store(minCust, maxCust, avgCookie, storeName, storeHours, storeNumber, 
   this.avgCookiePer = [];
   this.totalCookiesPerHour = [];
   this.totalCookiesSoldPerStore = 0;
-  console.log(this.minCust);
 }
 
 
@@ -150,24 +141,6 @@ for (let i = 0; i < totals.length; i++) {
 let form = document.getElementById('submit');
 
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  console.log(event);
-  let submit = new Store (Number(newStoreObject.minCust), Number(newStoreObject.maxCust), Number(newStoreObject.avgCookies), newStoreObject.storeName,'','','');
-  console.log(submit);
-  stores.push(submit);
-  submit.cookiePerHour();
-  submit.renderData();
-  renderTotalsAndHeader();
-});
-
-
-
-
-
-
-
-
 let Seattle = new Store(23, 65, 6.3, 'Seattle', 'Hours Open : 6am-7pm', 'Contact Info : 123-456-7890', 'Location :2901 3rd Ave #300, Seattle, WA 98121');
 let Tokyo = new Store(3, 24, 1.2, 'Tokyo', 'Hours Open : 6am - 7pm', 'Contact Info : 222-222-2222', 'ocation : 1 Chome-1-2 Oshiage, Sumida, 131-8634');
 let Dubai = new Store(11, 38, 3.7, 'Dubai', 'Hours Open : 6am - 7pm', 'Contact Info : 333-333-3333', 'Location : 1 Sheikh Mahammed bin Rashid - Dubai');
@@ -181,6 +154,16 @@ for (let i = 0; i < stores.length; i++) {
   stores[i].renderData();
 
 }
+
+form.addEventListener('submit',function(event){
+  event.preventDefault();
+  let submit = new Store (Number(newStoreObject.minCust), Number(newStoreObject.maxCust), Number(newStoreObject.avgCookies), newStoreObject.storeName);
+  console.log(submit);
+  stores.push(submit);
+  submit.cookiePerHour();
+  submit.renderData();
+  renderTotalsAndHeader();
+});
 
 renderTotalsAndHeader();
 
